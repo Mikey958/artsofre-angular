@@ -1,0 +1,18 @@
+<div class="layout">
+  <header class="layout__header">
+    <nav class="layout__nav">
+      <a routerLink="/list" routerLinkActive="layout__link--active" class="layout__link">
+        Список
+      </a>
+      <a routerLink="/map" routerLinkActive="layout__link--active" class="layout__link">Карта</a>
+    </nav>
+  </header>
+
+  <main class="layout__main">
+    <router-outlet />
+  </main>
+
+  <footer class="layout__footer">
+    <p class="layout__copyright">Узлов Андрей</p>
+  </footer>
+</div>
