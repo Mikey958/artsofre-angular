@@ -1,0 +1,16 @@
+<div class="company-list">
+  @if (isLoading()) {
+  <div class="company-list__loader">
+    <div class="company-list__spinner"></div>
+    <p>Загрузка компаний...</p>
+  </div>
+  } @else {
+  <div class="company-list__grid">
+    @for (company of companies(); track company.id) {
+    <app-company-item [company]="company"></app-company-item>
+    } @empty {
+    <p class="company-list__empty">Компании не найдены.</p>
+    }
+  </div>
+  }
+</div>
