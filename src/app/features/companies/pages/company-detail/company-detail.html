@@ -1,1 +1,63 @@
-<p>company-detail works!</p>
+<div class="company-detail">
+  @if (isLoading()) {
+    <div class="company-detail__loader">
+      <div class="company-detail__spinner"></div>
+      <p>Загрузка информации о компании...</p>
+    </div>
+  } @else if (hasError()) {
+    <div class="company-detail__error">
+      <p>Не удалось загрузить информацию о компании</p>
+      <button class="company-detail__back-button" (click)="goBack()">Вернуться к списку</button>
+    </div>
+  } @else if (company(); as comp) {
+    <article class="company-detail__container">
+      <nav class="company-detail__navigation">
+        <button class="company-detail__back-button" (click)="goBack()">Вернуться к списку</button>
+      </nav>
+
+      <div class="company-detail__header">
+        <img [src]="comp.logo" [alt]="comp.business_name" class="company-detail__logo" />
+
+        <div class="company-detail__header-info">
+          <h1 class="company-detail__title">{{ comp.suffix }} "{{ comp.business_name }}"</h1>
+
+          <ul class="company-detail__badges">
+            <li class="company-detail__badge company-detail__badge--industry">
+              {{ comp.industry }}
+            </li>
+            <li class="company-detail__badge company-detail__badge--type">
+              {{ comp.type }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <section class="company-detail__section">
+        <h2 class="company-detail__section-title">Слоган</h2>
+        <blockquote class="company-detail__slogan">"{{ comp.catch_phrase }}"</blockquote>
+      </section>
+
+      <section class="company-detail__section">
+        <h2 class="company-detail__section-title">Контактная информация</h2>
+
+        <dl class="company-detail__contacts">
+          <div class="company-detail__contact-item">
+            <dt class="company-detail__contact-label">Телефон</dt>
+            <dd class="company-detail__contact-value">
+              <a [href]="'tel:' + comp.phone_number">
+                {{ comp.phone_number }}
+              </a>
+            </dd>
+          </div>
+
+          <div class="company-detail__contact-item">
+            <dt class="company-detail__contact-label">Адрес</dt>
+            <dd class="company-detail__contact-value">
+              {{ comp.full_address }}
+            </dd>
+          </div>
+        </dl>
+      </section>
+    </article>
+  }
+</div>

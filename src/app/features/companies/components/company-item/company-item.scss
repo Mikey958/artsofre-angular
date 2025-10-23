@@ -42,16 +42,19 @@
   }
 
   &__info {
+    align-items: center;
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
   }
 
   &__badge {
-    font-size: 13px;
-    padding: 4px 12px;
+    display: inline-flex;
+    font-size: 18px;
+    padding: 8px 20px;
     border-radius: 16px;
     font-weight: 500;
+    white-space: nowrap;
 
     &--industry {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
