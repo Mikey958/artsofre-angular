@@ -1,4 +1,6 @@
 <div class="company-list">
+  <app-company-sort (sortChange)="onSortChange($event)"></app-company-sort>
+
   @if (isLoading()) {
     <div class="company-list__loader">
       <div class="company-list__spinner"></div>

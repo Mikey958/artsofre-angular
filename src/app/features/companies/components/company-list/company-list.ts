@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { Company } from '../../models/company';
+import { Company, CompanyFilters, SortChange } from '../../models/company';
 import { CompanyItem } from '../company-item/company-item';
+import { CompanySort } from '../company-sort/company-sort';
 import { CompanyService } from './../../../../core/services/company.service';
 
 @Component({
   selector: 'app-company-list',
-  imports: [CompanyItem],
+  imports: [CompanyItem, CompanySort],
   templateUrl: './company-list.html',
   styleUrl: './company-list.scss',
 })
@@ -14,6 +15,10 @@ export class CompanyList implements OnInit {
 
   companies = signal<Company[]>([]);
   isLoading = signal(true);
+  private filters = signal<CompanyFilters>({
+    sort_by: 'id',
+    sort_order: 'asc',
+  });
 
   ngOnInit() {
     this.loadCompanies();
@@ -22,7 +27,7 @@ export class CompanyList implements OnInit {
   loadCompanies() {
     this.isLoading.set(true);
 
-    this.companyService.getCompanies(1, 20).subscribe({
+    this.companyService.getCompanies(1, 100, this.filters()).subscribe({
       next: (response) => {
         this.companies.set(response.data);
         this.isLoading.set(false);
@@ -32,5 +37,14 @@ export class CompanyList implements OnInit {
         this.isLoading.set(false);
       },
     });
+  }
+
+  onSortChange(sortChange: SortChange) {
+    this.filters.update((current) => ({
+      ...current,
+      sort_by: sortChange.sortBy,
+      sort_order: sortChange.sortOrder,
+    }));
+    this.loadCompanies();
   }
 }

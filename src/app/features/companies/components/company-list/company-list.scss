@@ -1,4 +1,8 @@
 .company-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
   &__loader {
     display: flex;
     flex-direction: column;

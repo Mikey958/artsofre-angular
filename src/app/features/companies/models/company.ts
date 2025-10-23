@@ -28,6 +28,11 @@ export interface CompanyListResponse {
 export type SortBy = 'name' | 'id' | 'type' | 'industry';
 export type SortOrder = 'asc' | 'desc';
 
+export interface SortChange {
+  sortBy: SortBy;
+  sortOrder: SortOrder;
+}
+
 export interface CompanyFilters {
   q?: string;
   industry?: string;

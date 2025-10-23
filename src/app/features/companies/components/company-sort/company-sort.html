@@ -1,0 +1,29 @@
+<div class="company-sort">
+  <div class="company-sort__group">
+    <label class="company-sort__label" for="sortBy">Сортировать по:</label>
+    <select
+      class="company-sort__select"
+      id="sortBy"
+      [(ngModel)]="currentSortBy"
+      (ngModelChange)="onSortByChange()"
+    >
+      @for (option of sortByOptions; track option.value) {
+        <option class="company-sort__option" [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="company-sort__group">
+    <label class="company-sort__label" for="sortOrder">Порядок:</label>
+    <select
+      class="company-sort__select"
+      id="sortOrder"
+      [(ngModel)]="currentSortOrder"
+      (ngModelChange)="onSortOrderChange()"
+    >
+      @for (option of sortOrderOptions; track option.value) {
+        <option class="company-sort__option" [value]="option.value">{{ option.label }}</option>
+      }
+    </select>
+  </div>
+</div>
