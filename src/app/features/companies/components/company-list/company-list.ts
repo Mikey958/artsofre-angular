@@ -17,7 +17,7 @@ export class CompanyList implements OnInit {
   companies = signal<Company[]>([]);
   isLoading = signal(true);
   private filters = signal<CompanyFilters>({
-    sort_by: 'id',
+    sort_by: 'name',
     sort_order: 'asc',
   });
 

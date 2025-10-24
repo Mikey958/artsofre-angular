@@ -11,11 +11,10 @@ import { SortBy, SortChange, SortOrder } from '../../models/company';
 export class CompanySort {
   sortChange = output<SortChange>();
 
-  currentSortBy: SortBy = 'id';
+  currentSortBy: SortBy = 'name';
   currentSortOrder: SortOrder = 'asc';
 
   sortByOptions: { value: SortBy; label: string }[] = [
-    { value: 'id', label: 'ID' },
     { value: 'name', label: 'Названию' },
     { value: 'type', label: 'Типу' },
     { value: 'industry', label: 'Виду деятельности' },
