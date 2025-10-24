@@ -3,6 +3,12 @@
   flex-direction: column;
   gap: 24px;
 
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
   &__loader {
     display: flex;
     flex-direction: column;

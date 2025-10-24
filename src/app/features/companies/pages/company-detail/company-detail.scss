@@ -8,6 +8,10 @@
 }
 
 .company-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
   &__loader {
     display: flex;
     flex-direction: column;
@@ -32,8 +36,10 @@
     animation: spin 1s linear infinite;
   }
 
-  &__navigation {
-    margin-bottom: 24px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 
   &__back-button {
@@ -47,6 +53,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: inherit;
+    align-self: flex-start;
 
     &:hover {
       background: #e0e0e0;
@@ -58,7 +65,6 @@
   &__header {
     display: flex;
     gap: 24px;
-    margin-bottom: 32px;
     padding-bottom: 32px;
     border-bottom: 2px solid #f0f0f0;
   }
@@ -119,18 +125,16 @@
   }
 
   &__section {
-    margin-bottom: 32px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 
   &__section-title {
     font-size: 20px;
     font-weight: 600;
     color: #1a1a1a;
-    margin: 0 0 16px 0;
+    margin: 0;
   }
 
   &__slogan {
@@ -213,13 +217,16 @@
   }
 
   &__error {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
     padding: 64px 32px;
 
     p {
       font-size: 18px;
       color: #999;
-      margin: 0 0 24px 0;
+      margin: 0;
     }
   }
 }

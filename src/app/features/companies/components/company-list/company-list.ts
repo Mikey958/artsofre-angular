@@ -1,12 +1,13 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Company, CompanyFilters, SortChange } from '../../models/company';
+import { CompanyFilter } from '../company-filter/company-filter';
 import { CompanyItem } from '../company-item/company-item';
 import { CompanySort } from '../company-sort/company-sort';
 import { CompanyService } from './../../../../core/services/company.service';
 
 @Component({
   selector: 'app-company-list',
-  imports: [CompanyItem, CompanySort],
+  imports: [CompanyItem, CompanySort, CompanyFilter],
   templateUrl: './company-list.html',
   styleUrl: './company-list.scss',
 })
@@ -45,6 +46,15 @@ export class CompanyList implements OnInit {
       sort_by: sortChange.sortBy,
       sort_order: sortChange.sortOrder,
     }));
+    this.loadCompanies();
+  }
+
+  onFilterChange(filterValues: CompanyFilters) {
+    this.filters.set({
+      sort_by: this.filters().sort_by,
+      sort_order: this.filters().sort_order,
+      ...filterValues,
+    });
     this.loadCompanies();
   }
 }

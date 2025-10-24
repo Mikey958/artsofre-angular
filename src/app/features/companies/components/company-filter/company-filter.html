@@ -1,0 +1,41 @@
+<form class="company-filter" [formGroup]="filterForm">
+  <div class="company-filter__group">
+    <label class="company-filter__label" for="search">Поиск по названию:</label>
+    <input
+      class="company-filter__input"
+      id="search"
+      type="text"
+      formControlName="q"
+      placeholder="Введите название компании..."
+    />
+  </div>
+
+  <div class="company-filter__group">
+    <label class="company-filter__label" for="industry">Вид деятельности:</label>
+    <select class="company-filter__select" id="industry" formControlName="industry">
+      <option value="">-- Все --</option>
+      @for (industry of industries; track industry) {
+        <option [value]="industry">{{ industry }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="company-filter__group">
+    <label class="company-filter__label" for="companyType">Тип компании:</label>
+    <select class="company-filter__select" id="companyType" formControlName="company_type">
+      <option value="">-- Все --</option>
+      @for (type of companyTypes; track type) {
+        <option [value]="type">{{ type }}</option>
+      }
+    </select>
+  </div>
+
+  <button
+    class="company-filter__reset"
+    type="button"
+    (click)="resetFilters()"
+    aria-label="Сбросить все фильтры"
+  >
+    Сбросить фильтры
+  </button>
+</form>

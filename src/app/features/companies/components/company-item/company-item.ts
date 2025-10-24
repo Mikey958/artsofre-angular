@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Company } from '../../models/company';
 
@@ -9,5 +9,5 @@ import { Company } from '../../models/company';
   styleUrl: './company-item.scss',
 })
 export class CompanyItem {
-  @Input() company!: Company;
+  company = input.required<Company>();
 }

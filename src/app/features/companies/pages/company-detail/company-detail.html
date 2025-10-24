@@ -1,4 +1,4 @@
-<div class="company-detail">
+<article class="company-detail">
   @if (isLoading()) {
     <div class="company-detail__loader">
       <div class="company-detail__spinner"></div>
@@ -10,12 +10,17 @@
       <button class="company-detail__back-button" (click)="goBack()">Вернуться к списку</button>
     </div>
   } @else if (company(); as comp) {
-    <article class="company-detail__container">
-      <nav class="company-detail__navigation">
-        <button class="company-detail__back-button" (click)="goBack()">Вернуться к списку</button>
-      </nav>
+    <div class="company-detail__container">
+      <button
+        class="company-detail__back-button"
+        type="button"
+        (click)="goBack()"
+        aria-label="Вернуться к списку компаний"
+      >
+        <-- Вернуться к списку компаний
+      </button>
 
-      <div class="company-detail__header">
+      <header class="company-detail__header">
         <img [src]="comp.logo" [alt]="comp.business_name" class="company-detail__logo" />
 
         <div class="company-detail__header-info">
@@ -30,7 +35,7 @@
             </li>
           </ul>
         </div>
-      </div>
+      </header>
 
       <section class="company-detail__section">
         <h2 class="company-detail__section-title">Слоган</h2>
@@ -58,6 +63,6 @@
           </div>
         </dl>
       </section>
-    </article>
+    </div>
   }
-</div>
+</article>

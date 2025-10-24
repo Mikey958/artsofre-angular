@@ -8,7 +8,7 @@
       (ngModelChange)="onSortByChange()"
     >
       @for (option of sortByOptions; track option.value) {
-        <option class="company-sort__option" [value]="option.value">{{ option.label }}</option>
+        <option [value]="option.value">{{ option.label }}</option>
       }
     </select>
   </div>
@@ -22,7 +22,7 @@
       (ngModelChange)="onSortOrderChange()"
     >
       @for (option of sortOrderOptions; track option.value) {
-        <option class="company-sort__option" [value]="option.value">{{ option.label }}</option>
+        <option [value]="option.value">{{ option.label }}</option>
       }
     </select>
   </div>

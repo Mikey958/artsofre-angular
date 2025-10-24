@@ -1,8 +1,11 @@
 .company-list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
   &__title {
     font-size: 32px;
     font-weight: 700;
     color: #1a1a1a;
-    margin-bottom: 32px;
   }
 }

@@ -1,5 +1,8 @@
-<div class="company-list">
-  <app-company-sort (sortChange)="onSortChange($event)"></app-company-sort>
+<section class="company-list">
+  <div class="company-list__controls">
+    <app-company-filter (filterChange)="onFilterChange($event)" />
+    <app-company-sort (sortChange)="onSortChange($event)" />
+  </div>
 
   @if (isLoading()) {
     <div class="company-list__loader">
@@ -7,12 +10,14 @@
       <p>Загрузка компаний...</p>
     </div>
   } @else {
-    <div class="company-list__grid">
+    <ul class="company-list__grid">
       @for (company of companies(); track company.id) {
-        <app-company-item [company]="company"></app-company-item>
+        <li class="company-list__item">
+          <app-company-item [company]="company"></app-company-item>
+        </li>
       } @empty {
-        <p class="company-list__empty">Компании не найдены.</p>
+        <li class="company-list__empty">Компании не найдены.</li>
       }
-    </div>
+    </ul>
   }
-</div>
+</section>
