@@ -17,7 +17,7 @@ export class CompanyService {
   getCompanies(
     page: number = 1,
     perPage: number = 20,
-    filters?: CompanyFilters
+    filters?: CompanyFilters,
   ): Observable<CompanyListResponse> {
     let params = new HttpParams().set('page', page.toString()).set('per_page', perPage.toString());
 

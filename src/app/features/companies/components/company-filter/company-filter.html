@@ -1,12 +1,14 @@
 <form class="company-filter" [formGroup]="filterForm">
   <div class="company-filter__group">
-    <label class="company-filter__label" for="search">Поиск по названию:</label>
+    <label class="company-filter__label" title="Название / Адрес / Тип / Индустрия " for="search"
+      >Поиск по данным организации:</label
+    >
     <input
       class="company-filter__input"
       id="search"
       type="text"
       formControlName="q"
-      placeholder="Введите название компании..."
+      placeholder="Введите информацию о компании..."
     />
   </div>
 
